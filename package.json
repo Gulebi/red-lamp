@@ -1,6 +1,6 @@
 {
   "name": "red-lamp",
-  "version": "1.0.0",
+  "version": "0.2.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -12,8 +12,8 @@
     "url": "git+https://github.com/Gulebi/red-lamp.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Gulebi",
+  "license": "MIT",
   "dependencies": {
     "discord.js": "^13.5.0",
     "dotenv": "^10.0.0"
