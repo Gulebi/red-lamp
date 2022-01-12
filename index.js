@@ -1,7 +1,9 @@
 require('dotenv').config();
 const Discord = require('discord.js')
-const fs = require('fs') // подключаем fs к файлу
-const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MEMBERS", "GUILD_MESSAGES", "DIRECT_MESSAGES"] });
+const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MEMBERS", "GUILD_MESSAGES", "DIRECT_MESSAGES"] })
+const fs = require('fs')
+const mongoose = require('mongoose')
+const mongo = require('./mongo')
 const fetch = require('node-fetch')
 client.commands = new Discord.Collection() // создаём коллекцию для команд
 const PREFIX = "!"
@@ -19,8 +21,17 @@ fs.readdir('./commands', (err, files) => { // чтение файлов в па�
     })
 })
 
-client.on('ready', () => {
+client.on('ready', async () => {
     console.log(`Бот ${client.user.username} запустился`);
+    client.user.setActivity('на тебя', { type: 'WATCHING' })
+
+    await mongo().then(mongoose => {
+        try {
+            console.log('Бот подключился к mongo!');
+        } finally {
+            mongoose.connection.close()
+        }
+    })
 })
 
 client.on('messageCreate', message => {
