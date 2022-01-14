@@ -4,9 +4,9 @@ const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MEMBERS", "GUILD_
 const fs = require('fs')
 const mongoose = require('mongoose')
 const mongo = require('./mongo')
+const cmdTrigger = require('./cmd-trigger')
 const fetch = require('node-fetch')
 client.commands = new Discord.Collection() // создаём коллекцию для команд
-const PREFIX = "!"
 
 fs.readdir('./commands', (err, files) => { // чтение файлов в папке commands
     if (err) console.log(err)
@@ -23,26 +23,26 @@ fs.readdir('./commands', (err, files) => { // чтение файлов в па�
 
 client.on('ready', async () => {
     console.log(`Бот ${client.user.username} запустился`);
-    client.user.setActivity('на тебя', { type: 'WATCHING' })
+    client.user.setActivity('на тебя', { type: 'WATCHING' }) 
+
+    cmdTrigger.loadPrefixes(client)
+
+    
 
     await mongo().then(mongoose => {
         try {
             console.log('Бот подключился к mongo!');
         } finally {
-            mongoose.connection.close()
+            // mongoose.connection.close()
         }
     })
 })
 
-client.on('messageCreate', message => {
-    const prefix = PREFIX
-    if (!message.content.startsWith(prefix) || message.author.bot) return;
-    const messageArray = message.content.split(' ') // разделение пробелами
-    const command = messageArray[0] // команда после префикса
-    const args = messageArray.slice(1) // аргументы после команды
-
-    const command_file = client.commands.get(command.slice(prefix.length)) // получение команды из коллекции
-    if (command_file) command_file.run(client, message, args, prefix)
+client.on("messageCreate", (message) => {
+    if (message.author.bot) return;
+    cmdTrigger.cmdDetector(message, client)
 })
+
+
 
 client.login(process.env.TOKEN)
