@@ -7,6 +7,11 @@ module.exports.run = async (client,message,args) => {
         return;
     }
 
+    if (args.length > 2) {
+        message.channel.send('Укажите диапазон правильно');
+        return;
+    }
+
     const MIN = -1000000000;
     const MAX = 1000000000;
 

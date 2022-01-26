@@ -1,25 +1,37 @@
 require('dotenv').config();
 const Discord = require('discord.js')
-const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MEMBERS", "GUILD_MESSAGES", "DIRECT_MESSAGES"] })
+const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MEMBERS", "GUILD_MESSAGES", "DIRECT_MESSAGES", "GUILD_VOICE_STATES"] })
+
+module.exports = { client };
+
 const fs = require('fs')
+const path = require('path')
 const mongoose = require('mongoose')
 const mongo = require('./mongo')
 const cmdTrigger = require('./cmd-trigger')
 const fetch = require('node-fetch')
+const cmdsDir = './commands'
 client.commands = new Discord.Collection() // создаём коллекцию для команд
 
-fs.readdir('./commands', (err, files) => { // чтение файлов в папке commands
-    if (err) console.log(err)
 
-    const jsfile = files.filter(f => f.split('.').pop() === 'js') // файлы не имеющие расширение .js игнорируются
-    if (jsfile.length <= 0) return console.log('Команды не найдены!') // если нет ни одного файла с расширением .js
+let cmdsAmount = 0
 
-    console.log(`Загружено ${jsfile.length} команд`)
-    jsfile.forEach((f, i) => { // добавляем каждый файл в коллекцию команд
-        const props = require(`./commands/${f}`)
-        client.commands.set(props.help.name, props)
-    })
-})
+const readCommands = (dir) => {
+    const files = fs.readdirSync(path.join(__dirname, dir))
+    for (const file of files) {
+        const stat = fs.lstatSync(path.join(__dirname, dir, file))
+        if (stat.isDirectory()) {
+            readCommands(path.join(dir, file))
+        } else if (!file.endsWith('schema.js') && !file.endsWith('main-music.js')) {
+            const option = require(path.join(__dirname, dir, file))
+            client.commands.set(option.help.name, option)
+            cmdsAmount++
+        }
+    }
+}
+
+readCommands(cmdsDir)
+console.log(`Загружено ${cmdsAmount} команд`)
 
 client.on('ready', async () => {
     console.log(`Бот ${client.user.username} запустился`);

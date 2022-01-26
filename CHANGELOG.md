@@ -6,12 +6,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - yyyy-mm-dd
 
+## [0.4.0] - 2022-01-26
+
+### Added
+- Music commands: "resume", "loop", "pause", "play", "skip" 
+- Commands "clear", "help", "roll", "rps" and "temp"
+- Bot and database hosting
+
+### Changed
+- Minor changes in one or more files and commands
+
+### Removed
+
+### Fixed
+
+## [0.3.4] - 2022-01-17
+
+### Added
+- Text transformation commands: "boldfraktur", "boldscript", "double", "emojify", "fraktur", "fullwidth", "script" and "smallcaps"
+- Commands "clear", "help", "roll", "rps" and "temp"
+
+### Changed
+- Commands "avatar", "poll", "random" and say"
+- index.js file (method of loading commands)
+- Minor changes in one or more files
+
+### Removed
+- "bebra" command
+
+### Fixed
+
 ## [0.3.3] - 2022-01-15
 
 ### Added
 
 ### Changed
-- Changelog file
 - Minor changes in one or more files
 
 ### Removed
@@ -24,7 +53,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Commands "bebra" and "random"
 - Changelog file
-- cmd-trigger file
+- cmd-trigger file (New method of commands detection)
 
 ### Changed
 - README file

@@ -8,6 +8,8 @@ const commandPrefixSchema = require('./commands/schemas/set-prefix-cmd-schema')
 const globalPrefix = "!"
 const guildPrefixes = {} // { 'guildId' : 'prefix' }
 
+const { player } = require('./commands/music/main-music')
+
 module.exports.updateCache = (guildId, newPrefix) => {
     guildPrefixes[guildId] = newPrefix
 }
@@ -17,7 +19,7 @@ module.exports.loadPrefixes = async (client) => {
         try {
             for (const guild of client.guilds.cache) {
             const guildId = guild[1].id
-  
+
             const result = await commandPrefixSchema.findOne({ _id: guildId })
             guildPrefixes[guildId] = result.prefix
 
@@ -42,5 +44,5 @@ module.exports.cmdDetector = async (message, client) => {
     const args = messageArray.slice(1) // аргументы после команды
 
     const command_file = client.commands.get(command.slice(prefix.length)) // получение команды из коллекции
-    if (command_file) command_file.run(client, message, args, prefix)
+    if (command_file) command_file.run(client, message, args, prefix, player)
 }

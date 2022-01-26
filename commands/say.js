@@ -2,15 +2,16 @@ const Discord = module.require("discord.js");
 const fs = require("fs");
 
 module.exports.run = async (client,message,args) => {
+    if(!args.length) {
+        message.channel.send("Укажите текст");
+		message.delete(100);
+        return; 
+    }
 
-	if (message.member.permissions.has('MANAGE_MESSAGES')){
-		const msg = args.join(" "); // Считываем то, что хотим отправить!
-	    message.delete(100);
-		message.channel.send(msg);
-		console.log(`Пользователь ${message.author.username} отправил через say: ${msg}`); // Пишем в консоль о том, что кто-то написал сообщение через бота)
-	}else {
-		message.reply(`${message.author.username}, вы не имеете прав на эту команду!`)
-	}
+	const msg = args.join(" "); // Считываем то, что хотим отправить!
+	message.delete(100);
+	message.channel.send(msg);
+	console.log(`Пользователь ${message.author.username} отправил через say: ${msg}`); // Пишем в консоль о том, что кто-то написал сообщение через бота)
 };
 
 module.exports.help = {
