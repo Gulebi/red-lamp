@@ -43,6 +43,9 @@ module.exports.cmdDetector = async (message, client) => {
     const command = messageArray[0] // команда после префикса
     const args = messageArray.slice(1) // аргументы после команды
 
-    const command_file = client.commands.get(command.slice(prefix.length)) // получение команды из коллекции
+    let command_file = client.commands.get(command.slice(prefix.length));
+
+    if (!command_file) command_file = client.commands.get(client.aliases.get(command.slice(prefix.length)));
+
     if (command_file) command_file.run(client, message, args, prefix, player)
 }

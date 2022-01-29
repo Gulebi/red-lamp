@@ -51,5 +51,6 @@ module.exports.run = async (client,message,args) => {
 };
 
 module.exports.help = {
-    name: "boldfraktur"
+    name: "boldfraktur",
+    aliases: [""]
 };

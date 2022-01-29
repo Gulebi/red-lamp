@@ -11,7 +11,9 @@ const mongo = require('./mongo')
 const cmdTrigger = require('./cmd-trigger')
 const fetch = require('node-fetch')
 const cmdsDir = './commands'
-client.commands = new Discord.Collection() // создаём коллекцию для команд
+
+client.commands = new Discord.Collection()
+client.aliases = new Discord.Collection()
 
 
 let cmdsAmount = 0
@@ -24,7 +26,11 @@ const readCommands = (dir) => {
             readCommands(path.join(dir, file))
         } else if (!file.endsWith('schema.js') && !file.endsWith('main-music.js')) {
             const option = require(path.join(__dirname, dir, file))
+            
             client.commands.set(option.help.name, option)
+
+            if (option.help.aliases && Array.isArray(option.help.aliases)) option.help.aliases.forEach(alias => client.aliases.set(alias, option.help.name));
+
             cmdsAmount++
         }
     }

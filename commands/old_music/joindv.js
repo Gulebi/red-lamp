@@ -34,5 +34,6 @@ module.exports.run = async (client,message,args,prefix) => {
 };
 
 module.exports.help = {
-    name: "joindv"
+    name: "joindv",
+	aliases: [""]
 };

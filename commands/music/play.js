@@ -17,6 +17,11 @@ module.exports.run = async (client,message,args,prefix,player) => {
         metadata: message.channel
     });
 
+    queue.options.leaveOnEnd = false;
+    queue.options.leaveOnStop = true;
+    queue.options.leaveOnEmpty = true;
+    queue.options.leaveOnEmptyCooldown = 60 * 1000 * 3;
+
     try {
         if (!queue.connection) await queue.connect(message.member.voice.channel);
     } catch {
@@ -30,5 +35,6 @@ module.exports.run = async (client,message,args,prefix,player) => {
 };
 
 module.exports.help = {
-    name: "play"
+    name: "play",
+    aliases: ["p"]
 };

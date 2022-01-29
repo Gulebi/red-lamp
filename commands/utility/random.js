@@ -36,5 +36,6 @@ module.exports.run = async (client,message,args) => {
 };
 
 module.exports.help = {
-    name: "random"
+    name: "random",
+    aliases: ["rand"]
 };

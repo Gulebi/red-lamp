@@ -16,5 +16,6 @@ module.exports.run = async (client,message,args,prefix,player) => {
 };
 
 module.exports.help = {
-    name: "skip"
+    name: "skip",
+    aliases: ["s"]
 };
