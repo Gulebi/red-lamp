@@ -6,6 +6,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - yyyy-mm-dd
 
+## [0.4.2.1] - 2022-01-30
+
+### Added
+- Procfile
+
+### Changed
+- Minor changes in one or more files and commands
+
+### Removed
+
+### Fixed
+
 ## [0.4.2] - 2022-01-30
 
 ### Added
