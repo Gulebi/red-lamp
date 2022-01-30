@@ -6,11 +6,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - yyyy-mm-dd
 
+## [0.4.2] - 2022-01-30
+
+### Added
+- NSFW commands: "tentacles", "thighs"
+- "schedule" command
+
+### Changed
+- Minor changes in one or more files and commands
+
+### Removed
+
+### Fixed
+- All audio effects commands
+- New server error (when the bot connects to a new server it crashes)
+
 ## [0.4.1] - 2022-01-29
 
 ### Added
 - NSFW commands: "blowjob", "hentai", "succubus"
-- Audio eefects commands: "8D", "bassboost", "chipmunk", "karaoke", "reverse", "vaporwave"
+- Audio effects commands: "8D", "bassboost", "chipmunk", "karaoke", "reverse", "vaporwave"
 - "disconnect" command
 - Aliases for some commands
 

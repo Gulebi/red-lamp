@@ -10,6 +10,7 @@ module.exports.run = async (client,message,args,prefix,player) => {
     } else {
         const image = await akaneko.nsfw.succubus();
         const embed = new Discord.MessageEmbed()
+            .setTitle(`Succubus картинка для ${message.author.username}`)
             .setColor("RANDOM")
             .setImage(image)
             .setTimestamp()

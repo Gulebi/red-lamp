@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const setPrefixCmdSchema = mongoose.Schema({
+const setPrefixCmdSchema = new mongoose.Schema({
     // Guild ID
     _id: {
         type: String,

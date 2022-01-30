@@ -21,13 +21,16 @@ module.exports.loadPrefixes = async (client) => {
             const guildId = guild[1].id
 
             const result = await commandPrefixSchema.findOne({ _id: guildId })
-            guildPrefixes[guildId] = result.prefix
+            // guildPrefixes[guildId] = result.prefix
+            
+            if (result != null) {
+                guildPrefixes[guildId] = await result.prefix
+            }
 
-            guildPrefixes[guildId] = await result.prefix
             }
         console.log(guildPrefixes)
         } finally {
-        mongoose.connection.close()
+            mongoose.connection.close()
         }
     })
 }

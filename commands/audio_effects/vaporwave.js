@@ -25,7 +25,7 @@ module.exports.run = async (client,message,args,prefix,player) => {
             break;
     }
 
-    await queue.setFilters({ effectName: effectModeBoolean });
+    await queue.setFilters({ 'vaporwave': effectModeBoolean });
 
     if (queue.getFiltersEnabled()[0] == effectName || queue.getFiltersEnabled()[0] == undefined) {
         message.reply(`Режим эффекта изменён на | ${effectEnabled}`)

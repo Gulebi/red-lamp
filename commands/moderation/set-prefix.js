@@ -1,9 +1,9 @@
 const Discord = module.require("discord.js");
 const fs = require("fs");
-const mongo = require('../mongo')
-const setPrefixCmdSchema = require('./schemas/set-prefix-cmd-schema')
+const mongo = require('../../mongo')
+const setPrefixCmdSchema = require('../schemas/set-prefix-cmd-schema')
 
-const cmdTrigger = require('../cmd-trigger')
+const cmdTrigger = require('../../cmd-trigger')
 
 module.exports.run = async (client,message,args) => {
     if (message.member.permissions.has('MANAGE_GUILD')){

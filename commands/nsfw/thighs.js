@@ -8,9 +8,9 @@ module.exports.run = async (client,message,args,prefix,player) => {
         return message.reply("Этот канал не поддерживает nsfw контент")
         
     } else {
-        const image = await akaneko.nsfw.blowjob();
+        const image = await akaneko.nsfw.thighs();
         const embed = new Discord.MessageEmbed()
-            .setTitle(`Blowjob картинка для ${message.author.username}`)
+            .setTitle(`Thighs картинка для ${message.author.username}`)
             .setColor("RANDOM")
             .setImage(image)
             .setTimestamp()
@@ -20,6 +20,6 @@ module.exports.run = async (client,message,args,prefix,player) => {
 };
 
 module.exports.help = {
-    name: "blowjob",
-    aliases: ["bj"]
+    name: "thighs",
+    aliases: [""]
 };
