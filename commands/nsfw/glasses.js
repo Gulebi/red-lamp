@@ -9,13 +9,13 @@ module.exports.run = async (client,message,args,prefix,player) => {
     if(!message.channel.nsfw) {
         return message.reply("Этот канал не поддерживает nsfw контент")
     } else {
-        const name = "Hentai"
-        const image = await akaneko.nsfw.hentai();
+        const name = "Glasses"
+        const image = await akaneko.nsfw.glasses();
         base.nsfw_base(name,image,message)
     }
 };
 
 module.exports.help = {
-    name: "hentai",
+    name: "glasses",
     aliases: [""]
 };

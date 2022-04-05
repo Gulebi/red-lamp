@@ -13,6 +13,10 @@ const scheduledSchema = new mongoose.Schema({
     content: reqString,
     guildId: reqString,
     channelId: reqString,
+    doRepeat: {
+      type: Boolean,
+      required: true,
+    },
 })
 
 const name = 'scheduled-posts'

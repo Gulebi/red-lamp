@@ -24,7 +24,7 @@ const readCommands = (dir) => {
         const stat = fs.lstatSync(path.join(__dirname, dir, file))
         if (stat.isDirectory()) {
             readCommands(path.join(dir, file))
-        } else if (!file.endsWith('schema.js') && !file.endsWith('main-music.js')) {
+        } else if (!file.endsWith('schema.js') && !file.endsWith('main-music.js') && !file.endsWith('nsfw-base.js')) {
             const option = require(path.join(__dirname, dir, file))
             
             client.commands.set(option.help.name, option)

@@ -31,7 +31,7 @@ module.exports.run = async (client,message,args) => {
         .setThumbnail(result[0].current.imageUrl)
         .setTimestamp()
         .setFooter({ text: 'red-lamp bot', iconURL: 'https://i.imgur.com/0PCQtit.png' });
-    message.channel.send({ embeds: [embed] })
+        message.channel.send({ embeds: [embed] })
 
     } catch(err) {
         console.log(err);

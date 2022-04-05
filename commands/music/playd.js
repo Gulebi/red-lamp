@@ -3,7 +3,11 @@ const fs = require("fs");
 
 const { Player, QueryType, QueueRepeatMode } = require("discord-player");
 
+const downloader = require("@discord-player/downloader").Downloader;
+
 module.exports.run = async (client,message,args,prefix,player) => {
+    player.use("YOUTUBE_DL", downloader);
+
     const query = args.join(' ') // проверить
     const searchResult = await player
         .search(query, {
@@ -31,12 +35,12 @@ module.exports.run = async (client,message,args,prefix,player) => {
         return void message.reply("Could not join your voice channel!");
     }
 
-    await message.reply(`⏱ | Loading your ${searchResult.playlist ? "playlist" : "track"}...`);
+    await message.reply(`⏱ | Загружаю твой ${searchResult.playlist ? "плейлист" : "трек"}...`);
     searchResult.playlist ? queue.addTracks(searchResult.tracks) : queue.addTrack(searchResult.tracks[0]);
     if (!queue.playing) await queue.play();
 };
 
 module.exports.help = {
-    name: "play",
-    aliases: ["p"]
+    name: "playd",
+    aliases: ["pd"]
 };

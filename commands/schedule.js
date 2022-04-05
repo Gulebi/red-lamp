@@ -42,6 +42,11 @@ checkForPosts()
 module.exports.run = async (client,message,args) => {
 	const { mentions, guild, channel } = message
 
+	if (!message.member.permissions.has('MANAGE_GUILD')) {
+		message.reply(`${message.author.username}, вы не имеете прав на эту команду!`)
+		return;
+	}
+
     const targetChannel = mentions.channels.first()
     if (!targetChannel) {
       	message.reply('Please tag a channel to send your message in.')
@@ -63,7 +68,7 @@ module.exports.run = async (client,message,args) => {
     // Remve the channel tag from the args array
     args.shift()
 
-    const [date, time, clockType, timeZone] = args
+    const [date, time, clockType, timeZone, doRepeat] = args
 
     if (clockType !== 'AM' && clockType !== 'PM') {
       	message.reply(
@@ -85,6 +90,13 @@ module.exports.run = async (client,message,args) => {
       	'YYYY-MM-DD HH:mm A',
       	timeZone
     )
+
+	const isDoRepeatTrue = false
+    if (doRepeat == undefined || doRepeat == 'undefined') {
+		isDoRepeatTrue = (doRepeat === 'true')
+    } else {
+		isDoRepeatTrue = (doRepeat === 'true')
+	}
 
     message.reply('Please send the message you would like to schedule.')
 
@@ -113,6 +125,7 @@ module.exports.run = async (client,message,args) => {
 					content: collectedMessage.content,
 					guildId: guild.id,
 					channelId: targetChannel.id,
+					doRepeat: isDoRepeatTrue,
 				  }).save()
 			} finally {
 				mongoose.connection.close()
