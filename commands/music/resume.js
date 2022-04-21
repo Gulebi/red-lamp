@@ -16,5 +16,5 @@ module.exports.run = async (client,message,args,prefix,player) => {
 
 module.exports.help = {
     name: "resume",
-    aliases: [""]
+    // aliases: [""]
 };

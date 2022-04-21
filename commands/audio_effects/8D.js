@@ -36,5 +36,5 @@ module.exports.run = async (client,message,args,prefix,player) => {
 
 module.exports.help = {
     name: "8D",
-    aliases: [""]
+    // aliases: [""]
 };

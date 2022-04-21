@@ -35,5 +35,5 @@ module.exports.run = async (client,message,args,prefix) => {
 
 module.exports.help = {
     name: "playdp",
-    aliases: [""]
+    // aliases: [""]
 };

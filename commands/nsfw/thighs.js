@@ -17,5 +17,5 @@ module.exports.run = async (client,message,args,prefix,player) => {
 
 module.exports.help = {
     name: "thighs",
-    aliases: [""]
+    // aliases: [""]
 };
