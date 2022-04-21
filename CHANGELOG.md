@@ -6,6 +6,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - 1666-02-15
 
+## [0.4.3.2] - 2022-04-21
+
+### Added
+
+### Changed
+- Updated Ben's audio messages
+
+### Removed
+
+### Fixed
+- "reddit-get" command
+
 ## [0.4.3.1] - 2022-04-21
 
 ### Added
@@ -21,7 +33,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.4.3] - 2022-04-05
 
 ### Added
-- NSFW commands: all that is in the module "akaneco"
+- NSFW commands: all that is in the module "akaneko"
 - Audio effects commands: "earrape", "haas", "nightcore"
 - Commands "reddit-get", "ben", "playd"
 - Image commands: "gay", "mission-passed", "ussr", "wasted"
