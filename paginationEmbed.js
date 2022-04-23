@@ -6,20 +6,15 @@ const paginationEmbed = async (msg, pages, emojiList = ['⏪', '⏩'], timeout =
 	const curPage = await msg.channel.send({ embeds: [pages[page].setFooter({ text: `Страница ${page + 1} / ${pages.length}` })]});
 	for (const emoji of emojiList) await curPage.react(emoji);
     // const filter = (reaction, user) => emojiList.includes(reaction.emoji.name) && !user.bot;
+
     const filter = (reaction, user) => {
         return emojiList.includes(reaction.emoji.name) && !user.bot;
     }
 
 	const reactionCollector = curPage.createReactionCollector({ filter, idle: timeout });
 
-	reactionCollector.on('create', () => {
-		console.log('...');
-	});
-
 	reactionCollector.on('collect', (reaction, user) => {
-		console.log('...');
-        messageReactionRemove(curPage, user)
-		// reaction.users.remove(msg.author);
+		reaction.users.remove(msg.author);
 		switch (reaction.emoji.name) {
 			case emojiList[0]:
 				page = page > 0 ? --page : pages.length - 1;
@@ -34,7 +29,6 @@ const paginationEmbed = async (msg, pages, emojiList = ['⏪', '⏩'], timeout =
 	});
 	
 	reactionCollector.on('end', () => {
-		console.log('...');
 		if (!curPage.deleted) {
 			curPage.reactions.removeAll()
 		}

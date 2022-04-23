@@ -1,6 +1,6 @@
 require('dotenv').config();
 const Discord = require('discord.js')
-const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MEMBERS", "GUILD_MESSAGES", "DIRECT_MESSAGES", "GUILD_VOICE_STATES"] })
+const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MEMBERS", "GUILD_MESSAGES", "DIRECT_MESSAGES", "GUILD_VOICE_STATES", "GUILD_EMOJIS_AND_STICKERS", "GUILD_MESSAGE_REACTIONS"] })
 
 module.exports = { client };
 

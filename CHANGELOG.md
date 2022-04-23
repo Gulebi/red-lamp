@@ -6,6 +6,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - 1666-02-15
 
+## [0.4.4] - 2022-04-21
+
+### Added
+- "version" command
+
+### Changed
+- Minor changes in one or more files and commands
+
+### Removed
+
+### Fixed
+- "dhelp" command
+
 ## [0.4.3.2] - 2022-04-21
 
 ### Added
@@ -47,7 +60,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.4.2.1] - 2022-01-30
 
 ### Added
-- Procfile
 
 ### Changed
 - Minor changes in one or more files and commands
@@ -109,7 +121,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Commands "avatar", "poll", "random" and say"
-- index.js file (method of loading commands)
+- Method of loading commands
 - Minor changes in one or more files
 
 ### Removed
@@ -133,11 +145,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Commands "bebra" and "random"
-- Changelog file
-- cmd-trigger file (New method of commands detection)
+- New method of commands detection
 
 ### Changed
-- README file
 
 ### Removed
 
@@ -155,11 +165,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Per-server command prefix
 - "setprefix" command
-- set-prefix-cmd-schema.js file
-- mongo.js file
 
 ### Changed
-- index.js file
 
 ### Removed
 - "emojify" command
@@ -170,14 +177,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.2.1] - 2022-01-11
 
 ### Added
-- License file
-- .gitignore file
 
 ### Changed
 - Minor changes in one or more files
 
 ### Removed
-- config.json file
 
 ### Fixed
 - "8ball" command
@@ -186,10 +190,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Commands "8ball", "avatar", "coinflip", "emojify" and "poll"
-- Some other files
 
 ### Changed
-- index.js file
 
 ### Removed
 - "hi" command
@@ -201,7 +203,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Commands "hi", "ping" and "say"
-- config.json and index.js files
 
 ### Changed
 
