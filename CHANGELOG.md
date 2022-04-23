@@ -6,7 +6,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - 1666-02-15
 
-## [0.4.4] - 2022-04-21
+## [0.4.4.1] - 2022-04-23
+
+### Added
+- "math" command
+
+### Changed
+- Minor changes in one or more files and commands
+
+### Removed
+
+### Fixed
+
+## [0.4.4] - 2022-04-23
 
 ### Added
 - "version" command

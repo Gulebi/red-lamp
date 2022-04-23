@@ -80,7 +80,7 @@ module.exports.run = async (client,message,args) => {
     const validTimeZones = momentTimezone.tz.names()
     if (!validTimeZones.includes(timeZone)) {
       	message.reply(
-        	'Unknown timezone! Please use one of the following: <https://gist.github.com/AlexzanderFlores/d511a7c7e97b4c3ae60cb6e562f78300>'
+        	'Unknown timezone! Please use one of the following: <https://github.com/Gulebi/red-lamp/blob/main/timezones.txt>'
       	)
       	return
     }
