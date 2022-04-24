@@ -12,7 +12,7 @@ module.exports.run = async (client,message,args,prefix) => {
         return;
     }
 
-    message.reply(`${args[0]} = ${math.evaluate(args[0])}`);
+    message.reply(`\`${args[0]} = ${math.evaluate(args[0])}\``);
 };
 
 module.exports.help = {

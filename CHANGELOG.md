@@ -6,6 +6,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - 1666-02-15
 
+## [0.5.0] - 2022-04-24
+
+### Added
+- Games commands: "connect-four", "guess-the-number", "rock-paper-scissors", "snake", "tic-tac-toe"
+
+### Changed
+- Minor changes in one or more files and commands
+
+### Removed
+
+### Fixed
+- Music commands
+
 ## [0.4.4.1] - 2022-04-23
 
 ### Added

@@ -1,6 +1,6 @@
 {
   "name": "red-lamp",
-  "version": "0.4.4.1",
+  "version": "0.5.0",
   "description": "Project",
   "main": "index.js",
   "engines": {
@@ -24,9 +24,13 @@
     "@discordjs/voice": "^0.7.5",
     "akaneko": "^5.2.2",
     "audiobuffer-to-wav": "^1.0.0",
-    "discord-player": "^5.2.0",
+    "canvacord": "^5.2.3",
+    "discord-canvas": "^1.4.1",
+    "discord-player": "^5.2.3-dev",
+    "discord-xp": "^1.1.16",
     "discord.js": "^13.5.0",
     "discord.js-pagination": "^1.0.3",
+    "djs-games": "^2.1.10",
     "dotenv": "^10.0.0",
     "ffmpeg": "^0.0.4",
     "ffmpeg-static": "^4.4.1",

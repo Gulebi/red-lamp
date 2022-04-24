@@ -53,6 +53,6 @@ module.exports.run = async (client,message,args) => {
 };
 
 module.exports.help = {
-    name: "rps",
-    // aliases: [""]
+    name: "rock-paper-scissors-old",
+    aliases: ["rps-old"]
 };

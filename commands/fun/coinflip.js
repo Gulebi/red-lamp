@@ -7,7 +7,7 @@ module.exports.run = async (client,message,args) => {
         "Решка"
     ];
     const Response = responses[Math.floor(Math.random()*(responses.length))];
-    message.channel.send(Response);
+    message.channel.send(`🪙 | ${Response}, **${message.author.username}**`);
 };
 
 module.exports.help = {
