@@ -6,6 +6,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - 1666-02-15
 
+## [0.5.1] - 2022-04-25
+
+### Added
+- Added styling for some music commands
+
+### Changed
+- Minor changes in one or more files and commands
+
+### Removed
+
+### Fixed
+- "math" command
+
 ## [0.5.0] - 2022-04-24
 
 ### Added

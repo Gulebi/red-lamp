@@ -12,7 +12,16 @@ module.exports.run = async (client,message,args,prefix) => {
         return;
     }
 
-    message.reply(`\`${args[0]} = ${math.evaluate(args[0])}\``);
+    if (args[0] == '1000-7'){
+        message.reply(`\`${args[0]} = zxc\``);
+        return;
+    }
+    
+    try {
+        message.reply(`\`${args[0]} = ${math.evaluate(args[0])}\``);
+    } catch (error) {
+        console.log(error);
+    }
 };
 
 module.exports.help = {

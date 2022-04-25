@@ -30,11 +30,41 @@ player.on("connectionError", (queue, error) => {
 });
 
 player.on("trackStart", (queue, track) => {
-    queue.metadata.send(`🎶 | Начал проигрывать: **${track.title}** в **${queue.connection.channel.name}**!`);
+    const embed = new Discord.MessageEmbed()
+        .setTitle('Сейчас играет')
+        .setColor("#4188D2")
+        .setDescription(`🎶 \`${queue.current.title}\``)
+        .setThumbnail(queue.current.thumbnail)
+        .addFields(
+            { name: 'Трек добавлен', value: `\`Someone\``, inline: true },
+            // { name: 'Трек добавлен', value: queue.current.requestedBy.username, inline: true },
+            { name: 'Автор трека', value: `\`${queue.current.author}\``, inline: true },
+            { name: 'Длительность трека', value: `\`${queue.current.duration}\``, inline: true },
+        )
+        .setFooter({ text: 'red-lamp bot', iconURL: 'https://i.imgur.com/0PCQtit.png' });
+
+    queue.metadata.send({ embeds: [embed] });
+
+    // queue.metadata.send(`🎶 | Начал проигрывать: **${track.title}** в **${queue.connection.channel.name}**!`);
 });
 
 player.on("trackAdd", (queue, track) => {
-    queue.metadata.send(`🎶 | Трек **${track.title}** добавлен в очередь!`);
+    const embed = new Discord.MessageEmbed()
+        .setTitle('Трек добавлен в очередь')
+        .setColor("#4188D2")
+        .setDescription(`🎶 \`${queue.current.title}\``)
+        .setThumbnail(queue.current.thumbnail)
+        .addFields(
+            { name: 'Трек добавлен', value: `\`Someone\``, inline: true },
+            // { name: 'Трек добавлен', value: queue.current.requestedBy.username, inline: true },
+            { name: 'Автор трека', value: `\`${queue.current.author}\``, inline: true },
+            { name: 'Длительность трека', value: `\`${queue.current.duration}\``, inline: true },
+        )
+        .setFooter({ text: 'red-lamp bot', iconURL: 'https://i.imgur.com/0PCQtit.png' });
+
+    queue.metadata.send({ embeds: [embed] });
+    
+    // queue.metadata.send(`🎶 | Трек **${track.title}** добавлен в очередь!`);
 });
 
 player.on("botDisconnect", (queue) => {
@@ -42,11 +72,19 @@ player.on("botDisconnect", (queue) => {
 });
 
 player.on("channelEmpty", (queue) => {
-    queue.metadata.send("❌ | В голосовом канале никого нет, ухожу...");
+    queue.metadata.send("❌ | В голосовом канале никого нет, ливаю...");
 });
 
 player.on("queueEnd", (queue) => {
-    queue.metadata.send("✅ | Очередь закончена!");
+    const embed = new Discord.MessageEmbed()
+        .setTitle('Очередь закончена')
+        .setColor("#4188D2")
+        .setDescription('Добавьте в оченредь дольше песен')
+        .setFooter({ text: 'red-lamp bot', iconURL: 'https://i.imgur.com/0PCQtit.png' });
+
+    queue.metadata.send({ embeds: [embed] });
+
+    // queue.metadata.send("✅ | Очередь закончена!");
 });
 
 // client.on("messageCreate", async (message) => {

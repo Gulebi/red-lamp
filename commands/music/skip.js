@@ -9,9 +9,9 @@ module.exports.run = async (client,message,args,prefix,player) => {
     const currentTrack = queue.current;
     const success = queue.skip();
     if (success) {
-        message.reply(`✅ | Skipped **${currentTrack}**!`)
+        message.reply(`✅ | Скипнул **${currentTrack}**!`)
     } else {
-        message.reply("❌ | Something went wrong!")
+        message.reply("❌ | Что-то пошло не так!")
     }
 };
 

@@ -8,9 +8,9 @@ module.exports.run = async (client,message,args,prefix,player) => {
     if (!queue || !queue.playing) return void message.reply("❌ | No music is being played!");
     const paused = queue.setPaused(false);
     if (!paused) {
-        message.reply("❌ | Something went wrong!")
+        message.reply("❌ | Что-то пошло не так!")
     } else {
-        message.reply("▶ | Resumed!")
+        message.reply("▶ | Не на паузе!")
     }
 };
 
