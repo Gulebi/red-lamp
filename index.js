@@ -1,66 +1,65 @@
-require('dotenv').config();
-const Discord = require('discord.js')
-const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MEMBERS", "GUILD_MESSAGES", "DIRECT_MESSAGES", "GUILD_VOICE_STATES", "GUILD_EMOJIS_AND_STICKERS", "GUILD_MESSAGE_REACTIONS"] })
+require("dotenv").config();
+const Discord = require("discord.js");
+const client = new Discord.Client({
+    intents: ["GUILDS", "GUILD_MEMBERS", "GUILD_MESSAGES", "DIRECT_MESSAGES", "GUILD_VOICE_STATES", "GUILD_EMOJIS_AND_STICKERS", "GUILD_MESSAGE_REACTIONS"],
+});
 
 module.exports = { client };
 
-const fs = require('fs')
-const path = require('path')
-const mongoose = require('mongoose')
-const mongo = require('./mongo')
-const cmdTrigger = require('./cmd-trigger')
-const fetch = require('node-fetch')
-const cmdsDir = './commands'
+const fs = require("fs");
+const path = require("path");
+const mongoose = require("mongoose");
+const mongo = require("./mongo");
+const cmdTrigger = require("./cmd-trigger");
+const fetch = require("node-fetch");
+const cmdsDir = "./commands";
 
-client.commands = new Discord.Collection()
-client.aliases = new Discord.Collection()
+client.commands = new Discord.Collection();
+client.aliases = new Discord.Collection();
 
-
-let cmdsAmount = 0
+let cmdsAmount = 0;
 
 const readCommands = (dir) => {
-    const files = fs.readdirSync(path.join(__dirname, dir))
+    const files = fs.readdirSync(path.join(__dirname, dir));
     for (const file of files) {
-        const stat = fs.lstatSync(path.join(__dirname, dir, file))
+        const stat = fs.lstatSync(path.join(__dirname, dir, file));
         if (stat.isDirectory()) {
-            readCommands(path.join(dir, file))
-        } else if (!file.endsWith('schema.js') && !file.endsWith('main-music.js') && !file.endsWith('nsfw-base.js')) {
-            const option = require(path.join(__dirname, dir, file))
-            
-            client.commands.set(option.help.name, option)
+            readCommands(path.join(dir, file));
+        } else if (!file.endsWith("schema.js") && !file.endsWith("main-music.js") && !file.endsWith("nsfw-base.js")) {
+            const option = require(path.join(__dirname, dir, file));
 
-            if (option.help.aliases && Array.isArray(option.help.aliases)) option.help.aliases.forEach(alias => client.aliases.set(alias, option.help.name));
+            client.commands.set(option.help.name, option);
 
-            cmdsAmount++
+            if (option.help.aliases && Array.isArray(option.help.aliases)) option.help.aliases.forEach((alias) => client.aliases.set(alias, option.help.name));
+
+            cmdsAmount++;
         }
     }
-}
+};
 
-readCommands(cmdsDir)
-console.log(`Загружено ${cmdsAmount} команд`)
+readCommands(cmdsDir);
+console.log(`Загружено ${cmdsAmount} команд`);
 
-client.on('ready', async () => {
+client.on("ready", async () => {
     console.log(`Бот ${client.user.username} запустился`);
-    client.user.setActivity('на тебя', { type: 'WATCHING' }) 
+    client.user.setActivity("на тебя", { type: "WATCHING" });
 
-    cmdTrigger.loadPrefixes(client)
+    cmdTrigger.loadPrefixes(client);
 
-    
-
-    await mongo().then(mongoose => {
+    await mongo().then((mongoose) => {
         try {
-            console.log('Бот подключился к mongo!');
+            console.log("Бот подключился к mongo!");
         } finally {
-            // mongoose.connection.close()
+            // setTimeout(() => {
+            //     mongoose.connection.close();
+            // }, 1000);
         }
-    })
-})
+    });
+});
 
 client.on("messageCreate", (message) => {
     if (message.author.bot) return;
-    cmdTrigger.cmdDetector(message, client)
-})
+    cmdTrigger.cmdDetector(message, client);
+});
 
-
-
-client.login(process.env.TOKEN)
+client.login(process.env.TOKEN);

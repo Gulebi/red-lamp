@@ -6,6 +6,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - 1666-02-15
 
+## [0.5.2] - 2022-06-27
+
+### Added
+- Prettier to project
+- More image commands: "affect", "gay", "hitler", "obama", "putin", "stonks"
+
+### Changed
+
+### Removed
+
+### Fixed
+
 ## [0.5.1] - 2022-04-25
 
 ### Added
@@ -195,8 +207,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.3.1] - 2022-01-13
 
+### Added
+
 ### Changed
 - Minor changes in one or more files
+
+### Removed
+
+### Fixed
 
 ## [0.3.0] - 2022-01-13
 
